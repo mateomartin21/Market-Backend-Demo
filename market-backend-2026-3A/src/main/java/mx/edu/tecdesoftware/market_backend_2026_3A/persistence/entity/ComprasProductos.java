@@ -45,4 +45,5 @@ public class ComprasProductos {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
 }
