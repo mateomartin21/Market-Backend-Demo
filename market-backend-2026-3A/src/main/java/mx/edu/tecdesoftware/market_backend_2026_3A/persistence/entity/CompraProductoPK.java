@@ -1,8 +1,6 @@
 package mx.edu.tecdesoftware.market_backend_2026_3A.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -29,4 +27,5 @@ public class CompraProductoPK implements Serializable {
     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
     }
+
 }
