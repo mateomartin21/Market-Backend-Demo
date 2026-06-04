@@ -88,4 +88,11 @@ public class Producto {
     insertable=false, updatable=false)
     private Categorias categoria;
 
+    public Categorias getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categorias categoria) {
+        this.categoria = categoria;
+    }
 }
