@@ -8,14 +8,13 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@SuppressWarnings("ALL")
 @Mapper(componentModel = "spring", uses={CategoryMapper.class})
 public interface ProductMapper {
     @Mappings({
-            @Mapping(source = "idProducto", target = "productoId"),
+            @Mapping(source = "idProducto", target = "productId"),
             @Mapping(source = "nombre", target = "name"),
-            @Mapping(source = "precioVenta", target = "price"),
-            @Mapping(source = "cantidadStock", target = "stock"),
+            @Mapping(source = "precio_venta", target = "price"),
+            @Mapping(source = "cantidad_stock", target = "stock"),
             @Mapping(source = "estado", target = "active"),
             @Mapping(source = "categoria", target = "category")
     }
@@ -24,6 +23,6 @@ public interface ProductMapper {
     List<Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration
-    @Mapping(target= "codigoBarras", ignore = true)
-    Producto toProducto(Producto producto);
+    @Mapping(target= "codigo_barras", ignore = true)
+    Producto toProducto(Product product);
 }
