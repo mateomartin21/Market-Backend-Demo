@@ -25,8 +25,8 @@ public class ProductController {
 
         }
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable("id")int productId){
-        return productService.getProduct((productId)
+    public ResponseEntity getProduct(@PathVariable("id")int productId){
+        return productService.getProduct(productId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
 
@@ -34,8 +34,8 @@ public class ProductController {
 
     @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<Product>> getProductByCategory(@PathVariable("categoryId")int categoryId) {
-        return productService.getByCategory((productId)
-                        .map(ResponseEntity::ok))
+        return productService.getByCategory(categoryId)
+                        .map(ResponseEntity::ok)
                         .orElse(ResponseEntity.notFound().build());
     }
     @PostMapping("")
