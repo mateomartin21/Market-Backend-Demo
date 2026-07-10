@@ -1,6 +1,7 @@
 package mx.edu.tecdesoftware.market_backend_2026_3A.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Purchase {
     private int purchaseId;
@@ -8,7 +9,8 @@ public class Purchase {
     private LocalDateTime date;
     private char paymentMethod;
     private String comment;
-    private char status ;
+    private char status;
+    private List<PurchaseItem> items;
 
     public int getPurchaseId() {
         return purchaseId;
@@ -56,5 +58,13 @@ public class Purchase {
 
     public void setStatus(char status) {
         this.status = status;
+    }
+
+    public List<PurchaseItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<PurchaseItem> items) {
+        this.items = items;
     }
 }

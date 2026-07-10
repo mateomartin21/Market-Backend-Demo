@@ -6,19 +6,19 @@ import jakarta.persistence.*;
 @Table(name="compras_productos")
 public class ComprasProductos {
     @EmbeddedId
-    private CompraProductoPK id ;
+    private CompraProductoPK id;
 
     private Integer cantidad;
     private Double total;
     private Boolean estado;
 
+    @MapsId("idCompra")
     @ManyToOne
-    @JoinColumn(name="id_compra", insertable= false, updatable=false)
-    private Compra compra ;
+    @JoinColumn(name = "id_compra")
+    private Compra compra;
 
     @ManyToOne
-    @JoinColumn(name= "id_producto",
-    insertable=false, updatable=false)
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
     private Producto producto;
 
     public CompraProductoPK getId() {
@@ -53,4 +53,19 @@ public class ComprasProductos {
         this.estado = estado;
     }
 
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 }

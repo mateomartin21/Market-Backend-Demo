@@ -1,13 +1,11 @@
 package mx.edu.tecdesoftware.market_backend_2026_3A.domain;
 
-import java.math.BigDecimal;
-
 public class PurchaseItem {
     private int purchaseId;
     private int productId;
     private Integer quantity;
     private Double total;
-    private char status;
+    private Boolean status;
 
     public int getPurchaseId() {
         return purchaseId;
@@ -41,11 +39,11 @@ public class PurchaseItem {
         this.total = total;
     }
 
-    public char getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 }

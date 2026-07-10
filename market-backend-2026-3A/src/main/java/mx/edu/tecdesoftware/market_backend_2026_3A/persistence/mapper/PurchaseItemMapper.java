@@ -1,28 +1,27 @@
 package mx.edu.tecdesoftware.market_backend_2026_3A.persistence.mapper;
-import mx.edu.tecdesoftware.market_backend_2026_3A.domain.Purchase;
-import mx.edu.tecdesoftware.market_backend_2026_3A.persistence.entity.Compra;
+
+import mx.edu.tecdesoftware.market_backend_2026_3A.domain.PurchaseItem;
+import mx.edu.tecdesoftware.market_backend_2026_3A.persistence.entity.ComprasProductos;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 import java.util.List;
-@Mapper(componentModel = "spring", uses={CategoryMapper.class})
+
+@Mapper(componentModel = "spring")
 public interface PurchaseItemMapper {
     @Mappings({
-            @Mapping(source = "idCompra", target = "purchaseId"),
-            @Mapping(source = "idCliente", target = "clientId"),
-            @Mapping(source = "fecha", target = "date"),
-            @Mapping(source = "medioPago", target = "paymentMethod"),
-            @Mapping(source = "estado", target = "status"),
-            @Mapping(source = "comentario", target = "comment")
+            @Mapping(source = "id.idCompra", target = "purchaseId"),
+            @Mapping(source = "id.idProducto", target = "productId"),
+            @Mapping(source = "cantidad", target = "quantity"),
+            @Mapping(source = "total", target = "total"),
+            @Mapping(source = "estado", target = "status")
     })
-    Purchase toPurchase(Compra compra);
-    List<Purchase> toPurchases(List<Compra> compras);
+    PurchaseItem toPurchaseItem(ComprasProductos comprasProductos);
+    List<PurchaseItem> toPurchaseItems(List<ComprasProductos> comprasProductos);
 
     @InheritInverseConfiguration
-
-    @Mapping(target="cliente", ignore = true)
-    Compra toCompra(Purchase purchase);
-
+    @Mapping(target = "compra", ignore = true)
+    ComprasProductos toComprasProductos(PurchaseItem purchaseItem);
 }

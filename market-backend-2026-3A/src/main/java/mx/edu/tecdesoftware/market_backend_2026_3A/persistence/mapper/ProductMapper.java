@@ -1,4 +1,5 @@
 package mx.edu.tecdesoftware.market_backend_2026_3A.persistence.mapper;
+
 import mx.edu.tecdesoftware.market_backend_2026_3A.domain.Product;
 import mx.edu.tecdesoftware.market_backend_2026_3A.persistence.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
@@ -13,8 +14,8 @@ public interface ProductMapper {
     @Mappings({
             @Mapping(source = "idProducto", target = "productId"),
             @Mapping(source = "nombre", target = "name"),
-            @Mapping(source = "precio_venta", target = "price"),
-            @Mapping(source = "cantidad_stock", target = "stock"),
+            @Mapping(source = "precioVenta", target = "price"),
+            @Mapping(source = "cantidadStock", target = "stock"),
             @Mapping(source = "estado", target = "active"),
             @Mapping(source = "categoria", target = "category")
     }
@@ -23,6 +24,6 @@ public interface ProductMapper {
     List<Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration
-    @Mapping(target= "codigo_barras", ignore = true)
+    @Mapping(target= "codigoBarras", ignore = true)
     Producto toProducto(Product product);
 }
